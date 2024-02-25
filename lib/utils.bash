@@ -34,7 +34,7 @@ list_all_versions() {
 }
 
 get_arch() {
-	uname -m	
+	return uname -m
 }
 
 get_os() {
@@ -42,7 +42,7 @@ get_os() {
 	getos="$(uname -o)"
 	case "${getos}" in
 		"GNU/Linux")
-			unknown-linux-gnu;;
+			return unknown-linux-gnu;;
 	esac 
 }
 
