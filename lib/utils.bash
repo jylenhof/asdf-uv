@@ -34,7 +34,7 @@ list_all_versions() {
 }
 
 get_arch() {
-	echo "$(uname -m)"
+	uname -m
 }
 
 get_os() {
