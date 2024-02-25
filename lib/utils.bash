@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for uv.
 GH_REPO="https://github.com/astral-sh/uv"
 TOOL_NAME="uv"
 TOOL_TEST="uv --help"
@@ -31,9 +30,20 @@ list_github_tags() {
 }
 
 list_all_versions() {
-	# TODO: Adapt this. By default we simply list the tag names from GitHub releases.
-	# Change this function if uv has other means of determining installable versions.
 	list_github_tags
+}
+
+get_arch() {
+	uname -m	
+}
+
+get_os() {
+	local getos
+	getos="$(uname -o)"
+	case getos in
+		"GNU/Linux")
+			unknown-linux-gnu;;
+	esac 
 }
 
 download_release() {
@@ -41,8 +51,9 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	# TODO: Adapt the release URL convention for uv
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	arch="$(get_arch)"
+	os="$(get_os)"
+	url="$GH_REPO/releases/download/${version}/uv-${arch}-${os}.tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
