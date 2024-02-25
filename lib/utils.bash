@@ -40,7 +40,7 @@ get_arch() {
 get_os() {
 	local getos
 	getos="$(uname -o)"
-	case getos in
+	case "${getos}" in
 		"GNU/Linux")
 			unknown-linux-gnu;;
 	esac 
