@@ -49,6 +49,7 @@ get_os() {
 		;;
 	*)
 		exit 1
+		;;
 	esac
 }
 
