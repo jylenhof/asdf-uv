@@ -40,6 +40,7 @@ get_arch() {
 get_os() {
 	local getos
 	getos="$(uname -s)"
+	echo "${getos}"
 	case "${getos}" in
 	"Linux")
 		echo "unknown-linux-gnu"
