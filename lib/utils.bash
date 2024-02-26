@@ -46,6 +46,9 @@ get_os() {
 		;;
 	"Darwin")
 		echo "apple-darwin"
+		;;
+	*)
+		exit 1
 	esac
 }
 
