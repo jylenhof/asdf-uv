@@ -41,8 +41,9 @@ get_os() {
 	local getos
 	getos="$(uname -o)"
 	case "${getos}" in
-		"GNU/Linux")
-			echo "unknown-linux-gnu";;
+	"GNU/Linux")
+		echo "unknown-linux-gnu"
+		;;
 	esac 
 }
 
