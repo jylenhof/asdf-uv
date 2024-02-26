@@ -44,6 +44,8 @@ get_os() {
 	"Linux")
 		echo "unknown-linux-gnu"
 		;;
+	"Apple")
+		echo "apple-darwin"
 	esac
 }
 
