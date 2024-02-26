@@ -39,9 +39,9 @@ get_arch() {
 
 get_os() {
 	local getos
-	getos="$(uname -o)"
+	getos="$(uname -s)"
 	case "${getos}" in
-	"GNU/Linux")
+	"Linux")
 		echo "unknown-linux-gnu"
 		;;
 	esac
