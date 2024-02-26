@@ -44,7 +44,7 @@ get_os() {
 	"GNU/Linux")
 		echo "unknown-linux-gnu"
 		;;
-	esac 
+	esac
 }
 
 download_release() {
